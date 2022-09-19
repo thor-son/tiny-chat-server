@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  chat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - redis
+  redis:
+    image: redis:5-alpine3.11
+    ports:
+      - 6379:6379
